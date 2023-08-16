@@ -1,0 +1,37 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  port: 8080
+  servlet:
+    context-path: /JChat
+
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/jchat?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      username: root
+      password: 1234
+      initial-size: 8
+      max-active: 16
+      min-dile: 8
+      max-wait: 60000
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+
+
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml #mapper路径
+  type-aliases-package: com.lojc.jchat.db.pojo #设置pojo包
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #设置日志输出
+    map-underscore-to-camel-case: true #支持驼峰命名
+
+pagehelper:
+  helperDialect: mysql
+  supportMethodsArguments: true
+
